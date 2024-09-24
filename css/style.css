@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#editor-container {
+    width: 75vw;
+    height: 100vh;
+    float: left;
+}
+
+#side-panel {
+    width: 25vw;
+    padding: 20px;
+    background-color: #f4f4f4;
+    float: right;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+input, textarea, button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+a-scene {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}

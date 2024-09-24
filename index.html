@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D AR Studio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="editor-container">
+        <a-scene mindar-image="imageTargetSrc: ./assets/image-target.mind" embedded arjs>
+            <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+            <!-- 3D Models, Video, and Text Elements -->
+            <a-entity id="ar-model" position="0 0 0" scale="1 1 1" rotation="0 0 0" 
+                draggable resizable rotatable></a-entity>
+
+            <a-video id="ar-video" position="0 0 0" width="4" height="2.25" scale="1 1 1"></a-video>
+
+            <a-text id="ar-text" value="AR Text" position="0 1 0" color="black"></a-text>
+
+            <!-- Clickable Button with Links -->
+            <a-box id="button-link-1" position="1 1 0" rotation="0 45 0" color="#FF6347" 
+                event-set__enter="_event: mouseenter; color: #42f575"
+                event-set__leave="_event: mouseleave; color: #FF6347"
+                link="href: https://example.com; title: Visit Example"></a-box>
+        </a-scene>
+    </div>
+
+    <!-- Side Panel for User Upload and Controls -->
+    <div id="side-panel">
+        <h2>Upload and Customize Content</h2>
+
+        <form id="model-upload-form">
+            <input type="file" id="model-file" accept=".gltf, .glb" />
+            <button type="button" onclick="uploadModel()">Upload Model</button>
+        </form>
+
+        <form id="video-upload-form">
+            <input type="file" id="video-file" accept="video/mp4,video/x-m4v,video/*" />
+            <button type="button" onclick="uploadVideo()">Upload Video</button>
+        </form>
+
+        <input type="text" id="embed-video-url" placeholder="Enter YouTube or Google Drive link" />
+        <button type="button" onclick="embedVideo()">Embed Video</button>
+
+        <textarea id="ar-text-box" placeholder="Enter AR Text"></textarea>
+        <button type="button" onclick="addText()">Add Text</button>
+
+        <input type="text" id="link-url" placeholder="Enter URL" />
+        <button type="button" onclick="addButtonWithLink()">Add Clickable Button</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js/aframe/dist/mindar.js"></script>
+    <script src="js/interact.js"></script>
+    <script src="editor/code-editor.js"></script>
+    <script src="js/three-controls.js"></script>
+    <script src="js/ar-controls.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js/aframe/dist/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js/aframe/dist/aframe-mindar.js"></script>
+<script src="https://unpkg.com/interactjs@1.10.11/dist/interact.min.js"></script>
+</body>
+</html>
